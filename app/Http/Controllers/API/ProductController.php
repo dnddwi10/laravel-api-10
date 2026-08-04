@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
     $product = Product::create($request->validated());
-return response()->json([
+    return response()->json([
     'status' => true,
     'message' => 'Product created successfully',
     'data' => new ProductResource($product),
@@ -33,7 +33,7 @@ return response()->json([
         'data' => new ProductResource($product)
         ], Response::HTTP_OK);
 }
-public function update(ProductRequest $request, Product $product)
+    public function update(ProductRequest $request, Product $product)
 {
     $product->update($request->validated());
     return response()->json([
@@ -42,7 +42,7 @@ public function update(ProductRequest $request, Product $product)
         'data' => new ProductResource($product),
      ], Response::HTTP_OK);
 }
-public function destroy(Product $product)
+    public function destroy(Product $product)
 {
     $product->delete();
 
